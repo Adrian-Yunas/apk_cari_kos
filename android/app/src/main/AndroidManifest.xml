@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.aplikasi_cari_kos">
+    package="com.example.aplikasi_cari_kos"> 
+
+  <uses-permission android:name="android.permission.INTERNET" />
+
    <application
         android:label="aplikasi_cari_kos"
         android:icon="@mipmap/ic_launcher">

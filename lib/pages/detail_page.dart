@@ -1,11 +1,9 @@
-//import 'dart:ffi';
-
 import 'package:aplikasi_cari_kos/models/space.dart';
-import 'package:aplikasi_cari_kos/pages/eror_page.dart';
+import 'package:aplikasi_cari_kos/pages/error_page.dart';
+import 'package:aplikasi_cari_kos/pages/wishlist_page.dart';
 import 'package:aplikasi_cari_kos/theme.dart';
 import 'package:aplikasi_cari_kos/widgets/facility_item.dart';
 import 'package:aplikasi_cari_kos/widgets/rating_item.dart';
-//import 'package:aplikasi_cari_kos/widgets/space_card.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -261,7 +259,6 @@ class _DetailPageState extends State<DetailPage> {
                       InkWell(
                         onTap: () {
                           launchUrl(widget.space.mapUrl);
-                          //launchUrl('aweeeee');
                         },
                         child: Image.asset(
                           'assets/images/btn_map.png',
@@ -284,7 +281,7 @@ class _DetailPageState extends State<DetailPage> {
                     onPressed: () {
                       showConfirmation();
                     },
-                    color: purpleColor,
+                    color: primaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(17),
                     ),
@@ -320,10 +317,18 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                   InkWell(
                     onTap: () {
-                      setState(() {
-                        isClicked = !isClicked;
-                      });
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  WishlistPage()));
                     },
+                    // InkWell(
+                    //   onTap: () {
+                    //     setState(() {
+                    //       isClicked = !isClicked;
+                    //     });
+                    //   },
                     child: Image.asset(
                       isClicked
                           ? 'assets/images/btn_wishlist_filled.png'

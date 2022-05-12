@@ -2,10 +2,12 @@ import 'package:aplikasi_cari_kos/models/city.dart';
 import 'package:aplikasi_cari_kos/models/space.dart';
 import 'package:aplikasi_cari_kos/models/tips.dart';
 import 'package:aplikasi_cari_kos/providers/space_provider.dart';
-import 'package:aplikasi_cari_kos/widgets/bottom_navbar_item.dart';
+
 import 'package:aplikasi_cari_kos/widgets/city_card.dart';
 import 'package:aplikasi_cari_kos/widgets/space_card.dart';
 import 'package:aplikasi_cari_kos/widgets/tips_card.dart';
+import 'package:aplikasi_cari_kos/widgets/tips_guide/guide_card.dart';
+import 'package:aplikasi_cari_kos/widgets/tips_guide/tips_card.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_cari_kos/theme.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +42,7 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: edge),
               child: Text(
-                'Mencari kosan yang cozy',
+                'Mencari kosan yang cozy disini tempatnyaaa . .',
                 style: greyTextStyle.copyWith(
                   fontSize: 16,
                 ),
@@ -132,6 +134,17 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     width: 24,
                   ),
+                  CityCard(
+                    City(
+                      id: 7,
+                      name: 'Yogyakarta',
+                      imageUrl: 'assets/images/city7.jpg',
+                      isPopular: true,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 24,
+                  ),
                 ],
               ),
             ),
@@ -211,16 +224,43 @@ class HomePage extends StatelessWidget {
                       imageUrl: 'assets/images/tips1.png',
                       updateAt: '20 Apr',
                     ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TipsItem()));
+                        //Get.to(TipsItem());
+                      },
+                      icon: Icon(
+                        Icons.chevron_right,
+                        color: greyColor,
+                      ),
+                    ),
+                    //Get.to(TipsItem());
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   TipsCard(
                     Tips(
-                      id: 1,
+                      id: 2,
                       title: 'Jakarta Fairship',
                       imageUrl: 'assets/images/tips2.png',
                       updateAt: '11 Dec',
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GuideItem()));
+                        //Get.to(GuideItem());
+                      },
+                      icon: Icon(
+                        Icons.chevron_right,
+                        color: greyColor,
+                      ),
                     ),
                   ),
                 ],
@@ -232,39 +272,66 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: Container(
-        height: 65,
-        width: MediaQuery.of(context).size.width - (2 * edge),
-        margin: EdgeInsets.symmetric(
-          horizontal: edge,
-        ),
-        decoration: BoxDecoration(
-          color: Color(0xffF6F7F8),
-          borderRadius: BorderRadius.circular(23),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            BottomNavbarItem(
-              imageUrl: 'assets/images/icon_home.png',
-              isActive: true,
-            ),
-            BottomNavbarItem(
-              imageUrl: 'assets/images/icon_email.png',
-              isActive: false,
-            ),
-            BottomNavbarItem(
-              imageUrl: 'assets/images/icon_card.png',
-              isActive: false,
-            ),
-            BottomNavbarItem(
-              imageUrl: 'assets/images/icon_love.png',
-              isActive: false,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
+    //   floatingActionButton: Container(
+    //     height: 65,
+    //     width: MediaQuery.of(context).size.width - (2 * edge),
+    //     margin: EdgeInsets.symmetric(
+    //       horizontal: edge,
+    //     ),
+    //     decoration: BoxDecoration(
+    //       color: Color(0xffF6F7F8),
+    //       borderRadius: BorderRadius.circular(23),
+    //     ),
+    //   ),
+    // );
+    //     child: RaisedButton(
+    //       onPressed: () {
+    //         Navigator.push(
+    //           context,
+    //           MaterialPageRoute(
+    //             builder: (context) => EmailPage(),
+    //           ),
+    //         );
+    //       },
+    //       color: purpleColor,
+    //       shape: RoundedRectangleBorder(
+    //         borderRadius: BorderRadius.circular(17),
+    //       ),
+    //       child: Text(
+    //         'Inbox',
+    //         style: whiteTextStyle.copyWith(
+    //           fontSize: 14,
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+    //   children: [
+    //     BottomNavbarItem(
+    //       imageUrl: 'assets/images/icon_home.png',
+    //       isActive: true,
+    //     ),
+    //     BottomNavbarItem(
+    //       imageUrl: 'assets/images/icon_email.png',
+    //       isActive: false,
+    //     ),
+    //     BottomNavbarItem(
+    //       imageUrl: 'assets/images/icon_card.png',
+    //       isActive: false,
+    //     ),
+    //     BottomNavbarItem(
+    //       imageUrl: 'assets/images/icon_love.png',
+    //       isActive: false,
+    //     ),
+    //     BottomNavbarItem(
+    //       imageUrl: 'assets/images/icon_search.png',
+    //       isActive: false,
+    //     ),
+    //     NavbarItem(),
+    //   ],
+    // ),
+    //   floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    // );
   }
 }

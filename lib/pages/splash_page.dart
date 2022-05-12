@@ -1,6 +1,9 @@
+import 'package:aplikasi_cari_kos/components/navbar_item.dart';
+import 'package:aplikasi_cari_kos/email_page/email_page.dart';
 import 'package:aplikasi_cari_kos/pages/home_page.dart';
 import 'package:aplikasi_cari_kos/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:aplikasi_cari_kos/autentikasi/login_page.dart';
 
 class SplashPage extends StatelessWidget {
   @override
@@ -61,11 +64,11 @@ class SplashPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => Navbar(),
                           ),
                         );
                       },
-                      color: purpleColor,
+                      color: primaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(17),
                       ),

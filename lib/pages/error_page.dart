@@ -50,7 +50,7 @@ class ErrorPage extends StatelessWidget {
                         ),
                         (route) => false);
                   },
-                  color: purpleColor,
+                  color: primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(17),
                   ),

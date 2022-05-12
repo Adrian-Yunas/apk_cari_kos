@@ -3,8 +3,10 @@ import 'package:aplikasi_cari_kos/theme.dart';
 import 'package:flutter/material.dart';
 
 class TipsCard extends StatelessWidget {
+  static String id = 'TipsCard';
   final Tips tips;
-  TipsCard(this.tips);
+  IconButton iconButton;
+  TipsCard(this.tips, this.iconButton);
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +38,7 @@ class TipsCard extends StatelessWidget {
           ],
         ),
         Spacer(),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.chevron_right,
-            color: greyColor,
-          ),
-        ),
+        iconButton,
       ],
     );
   }

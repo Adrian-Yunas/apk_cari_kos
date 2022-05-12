@@ -1,13 +1,14 @@
 import 'dart:convert';
 
 import 'package:aplikasi_cari_kos/models/space.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class SpaceProvider extends ChangeNotifier {
   getRecommendedSpaces() async {
-    var result =
-        await http.get('https://bwa-cozy.herokuapp.com/recommended-spaces');
+    var result = await http
+        .get(Uri.parse('https://bwa-cozy.herokuapp.com/recommended-spaces'));
 
     print(result.statusCode);
     print(result.body);
@@ -19,5 +20,15 @@ class SpaceProvider extends ChangeNotifier {
     } else {
       return <Space>[];
     }
+  }
+
+  static Future<List<Space>> getData(String query) async {
+    var response = await Dio().get(
+        "https://bwa-cozy.herokuapp.com/recommended-spaces",
+        queryParameters: {
+          "name": query,
+        });
+    var result = Space.fromJsonList(response.data);
+    return result;
   }
 }

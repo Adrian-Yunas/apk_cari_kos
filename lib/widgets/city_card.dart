@@ -32,7 +32,7 @@ class CityCard extends StatelessWidget {
                           width: 50,
                           height: 30,
                           decoration: BoxDecoration(
-                            color: purpleColor,
+                            color: primaryColor,
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(36),
                             ),

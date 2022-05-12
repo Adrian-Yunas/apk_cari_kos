@@ -40,7 +40,7 @@ class SpaceCard extends StatelessWidget {
                       width: 70,
                       height: 30,
                       decoration: BoxDecoration(
-                        color: purpleColor,
+                        color: primaryColor,
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(36),
                         ),
